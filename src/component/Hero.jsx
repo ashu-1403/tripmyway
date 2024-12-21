@@ -1,53 +1,84 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
+import { ArrowRight, Map, Calendar, Globe } from "lucide-react";
 import { Link } from "react-router-dom";
-import { motion } from 'framer-motion';
-import image from "../assets/Around the world.png";
+import image from "../assets/travel.jpg";
 
-function Hero() {
+const Hero = () => {
   return (
-    <div className="relative h-screen flex items-center justify-center bg-gradient-to-r from-purple-500 to-indigo-500">
-      <div className="text-center max-w-3xl mx-auto px-4 sm:px-8 lg:px-12 bg-white bg-opacity-80 p-8 md:p-12 lg:p-16 rounded-2xl shadow-lg">
-        <motion.h1
-          className="text-4xl sm:text-5xl lg:text-6xl font-bold text-purple-800 leading-tight mb-6"
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          Discover the world, one journey at a time.
-        </motion.h1>
-        <motion.p
-          className="text-lg sm:text-xl lg:text-2xl text-gray-700 mb-10"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          Let us turn your travel dreams into reality with personalized trips, unforgettable experiences, and hassle-free planning. Your next adventure awaits!
-        </motion.p>
-        <Link to={"/createtrip"}>
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
-            <Button className="bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-md">
-              Explore Now
-            </Button>
-          </motion.div>
-        </Link>
+    <div className="min-h-screen relative overflow-hidden bg-gradient-to-b from-blue-50 to-white">
+      {/* Background decoration */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-40 -right-40 w-96 h-96 bg-blue-100 rounded-full opacity-50 blur-3xl" />
+        <div className="absolute top-20 -left-20 w-72 h-72 bg-teal-100 rounded-full opacity-50 blur-3xl" />
       </div>
-      <div className="absolute bottom-0 right-0 mr-10 mb-10">
-        <motion.img
-          src={image}
-          alt="Around the world"
-          initial={{ opacity: 0, x: 100 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="w-32 sm:w-40 lg:w-48"
-        />
+
+      {/* Main content */}
+      <div className="relative container mx-auto px-4 pt-20 pb-16 flex flex-col lg:flex-row items-center gap-12">
+        {/* Left column - Text content */}
+        <div className="flex-1 text-center lg:text-left space-y-8">
+          <div className="inline-block px-4 py-2 bg-blue-50 rounded-full">
+            <span className="text-blue-600 font-medium text-sm">Your next adventure awaits</span>
+          </div>
+          
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900">
+            Transform Your 
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-teal-500"> Travel Dreams </span>
+            Into Reality
+          </h1>
+          
+          <p className="text-lg text-gray-600 max-w-2xl">
+            Experience seamless journey planning with our intelligent travel companion. 
+            Create unforgettable itineraries tailored just for you.
+          </p>
+
+          <div className="flex justify-center lg:justify-start">
+            <Link to="/createtrip">
+              <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 rounded-xl flex items-center gap-2 text-lg transform hover:scale-105 transition-transform">
+                Explore Now
+                <ArrowRight className="w-5 h-5" />
+              </Button>
+            </Link>
+          </div>
+
+          {/* Trust indicators */}
+          <div className="flex items-center gap-8 justify-center lg:justify-start text-gray-600 pt-8">
+            <div className="flex items-center gap-2">
+              <Globe className="w-5 h-5 text-blue-600" />
+              <span>190+ Countries</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Map className="w-5 h-5 text-blue-600" />
+              <span>1000+ Routes</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Calendar className="w-5 h-5 text-blue-600" />
+              <span>24/7 Support</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Right column - Visual element */}
+        <div className="flex-1 relative">
+          <div className="relative w-full aspect-square max-w-lg mx-auto">
+            {/* Decorative elements */}
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-100 to-teal-50 rounded-full opacity-20" />
+            <div className="absolute -top-4 -right-4 w-24 h-24 bg-yellow-100 rounded-full opacity-60" />
+            <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-teal-100 rounded-full opacity-60" />
+            
+            {/* Placeholder for main image */}
+            <div className="absolute inset-4 rounded-2xl bg-gradient-to-br from-white to-gray-50 shadow-2xl overflow-hidden">
+              <img 
+                src={image} 
+                alt="Travel planning illustration" 
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
-}
+};
 
 export default Hero;
