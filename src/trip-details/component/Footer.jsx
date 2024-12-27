@@ -13,9 +13,9 @@ function Footer() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center space-y-6 sm:space-y-8">
           <h2 className="text-xl sm:text-2xl font-bold">
-            Created by{' '}
-            <span className="text-primary bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent hover:text-gray-300">
-              Aashutosh
+            Crafted  with{' '}
+            <span className="text-primary bg-gradient-to-r from-primary to-primary/60 bg-clip-text  text-gray-300">
+            ♥
             </span>
           </h2>
 
